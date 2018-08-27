@@ -1,0 +1,72 @@
+
+/*  */
+/* Custom site css */
+.navbar {
+    border-radius: 0;
+}
+.form-control {
+    border-radius: 0;
+}
+
+
+.ad-search-bar {
+    padding: 30px 10px;
+}
+.ad-search-msg {
+    padding: 8px 8px 2px 8px;
+    color: #222;
+    background: #fbfbfb;
+}
+.ad-title, .ad-title:hover, .ad-title:focus {
+    color: #333;
+}
+.ad-title-num {
+    font-size: 20px;
+    padding: 0 10px 0 0;
+    color: #ccc;
+}
+.ad-title-arrow, .ad-title-arrow:hover, .ad-title-arrow:focus {
+    padding-left: 20px;
+    color: #ccc;
+}
+.ad-desc {
+
+}
+.ad-desc-2 {
+    padding: 50px 20px;
+}
+.dl-horizontal dt {
+    text-align: left;
+    padding-bottom: 10px;
+}
+.btn-grp-custom {
+    margin-right:5px;
+}
+
+/* Dropzone css */
+
+.dz-clickable {
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    background: #e7e7e7;
+}
+.dz-preview {
+    padding: 15px;
+}
+.dz-image {
+    text-align: center;
+}
+.dz-progress {
+    height: 10px;
+    background: #21ce21;
+}
+.dz-error-message {
+    color: #f59696;
+}
+.dz-success-mark {
+    display: none;
+}
+.dz-error-mark {
+    display: none;
+}

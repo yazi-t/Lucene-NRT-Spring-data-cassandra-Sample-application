@@ -1,0 +1,86 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cassandra="http://www.springframework.org/schema/data/cassandra"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+
+        http://www.springframework.org/schema/data/cassandra
+        http://www.springframework.org/schema/data/cassandra/spring-cassandra.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <context:component-scan base-package="advertise">
+        <context:exclude-filter type="regex" expression="advertise\.web\.controller\..*" />
+    </context:component-scan>
+
+
+    <!--<mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/fonts/**" location="/fonts/"/>
+    <mvc:resources mapping="/images/**" location="/img/"/>
+    <mvc:resources mapping="/resources/**" location="file:D:/wbbs/ads/"/>-->
+
+    <mvc:annotation-driven/>
+
+    <context:property-placeholder location="classpath:system.properties,classpath:cassandra.properties"
+                                  ignore-resource-not-found="true"
+                                  ignore-unresolvable="true"/>
+
+    <!--Common beans-->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>-->
+
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="50000000"/>
+    </bean>
+
+    <!-- REQUIRED: The Cassandra Cluster -->
+    <cassandra:cluster id="cluster" contact-points="${cassandra.contactpoints}" port="${cassandra.port}">
+        <!--<cassandra:keyspace action="CREATE_DROP" name="${cassandra.keyspace}" />-->
+        <cassandra:keyspace action="NONE" name="${cassandra.keyspace}" />
+    </cassandra:cluster>
+
+    <!-- REQUIRED: The Cassandra Session, built from the Cluster, and attaching
+    to a keyspace -->
+    <cassandra:session id="session" keyspace-name="${cassandra.keyspace}" cluster-ref="cluster" schema-action="CREATE_IF_NOT_EXISTS"/>
+
+    <!-- REQUIRED: The Default Cassandra Mapping Context used by CassandraConverter -->
+    <cassandra:mapping entity-base-packages="advertise.orm.model">
+        <cassandra:user-type-resolver keyspace-name="${cassandra.keyspace}" cluster-ref="cluster" />
+    </cassandra:mapping>
+
+    <!-- REQUIRED: The Default Cassandra Converter used by CassandraTemplate -->
+    <cassandra:converter />
+
+    <!-- REQUIRED: The Cassandra Template is the building block of all Spring Data Cassandra -->
+    <cassandra:template id="cassandraTemplate" session-ref="session" />
+
+    <!-- OPTIONAL: If you are using Spring Data for Apache Cassandra Repositories, add your base packages to scan here -->
+    <cassandra:repositories base-package="advertise.orm.dao" cassandra-template-ref="cassandraTemplate" />
+
+    <bean id="identifierConverter" class="support.types.UUIDIdentifierConverter" />
+
+    <bean id="adService" class="advertise.service.impl.AdServiceImpl" />
+
+    <bean id="keyWordBaseSearchProcessor" class="advertise.lucene.nrt.NRTReopenThreadSearchProcessor">
+        <constructor-arg ref="adService" />
+        <constructor-arg ref="identifierConverter" />
+        <constructor-arg value="SIMPLE" />
+        <constructor-arg value="false" />
+        <constructor-arg value="false" />
+    </bean>
+
+
+</beans>

@@ -1,0 +1,77 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ad-web:war exploded">
+    <output-path>$PROJECT_DIR$/web/target/ad-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ad-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="ad-service-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ad-service" />
+          </element>
+          <element id="archive" name="ad-orm-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ad-orm" />
+          </element>
+          <element id="archive" name="lucene-support-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="lucene-support" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-cassandra:2.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:2.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: com.datastax.cassandra:cassandra-driver-core:3.3.2" />
+          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.0.47.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-buffer:4.0.47.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-common:4.0.47.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport:4.0.47.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-codec:4.0.47.Final" />
+          <element id="library" level="project" name="Maven: io.dropwizard.metrics:metrics-core:3.2.2" />
+          <element id="library" level="project" name="Maven: com.github.jnr:jnr-posix:3.0.27" />
+          <element id="library" level="project" name="Maven: com.github.jnr:jnr-constants:0.9.0" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:19.0" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0.2" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.6.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.3" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.3" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.10" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.10" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.3.1" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.9.10" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-xc:1.9.10" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-core:5.5.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-analyzers-common:5.5.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-queries:5.5.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-queryparser:5.5.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-sandbox:5.5.0" />
+          <element id="library" level="project" name="Maven: com.github.jnr:jnr-ffi:2.1.7" />
+          <element id="library" level="project" name="Maven: com.github.jnr:jffi:1.2.16" />
+          <element id="library" level="project" name="Maven: com.github.jnr:jffi:native:1.2.16" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.0.3" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-commons:5.0.3" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-analysis:5.0.3" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-tree:5.0.3" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-util:5.0.3" />
+          <element id="library" level="project" name="Maven: com.github.jnr:jnr-x86asm:1.0.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/web/target/ad-web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ad-web/web/Web" />
+    </root>
+  </artifact>
+</component>
