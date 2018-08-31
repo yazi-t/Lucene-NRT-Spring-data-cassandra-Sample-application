@@ -21,3 +21,10 @@ This is a sample advertising web application to demonstrate usage of Apache Luce
  #### DirectoryReader to open indexes
  
  Directory reader allows to read uncommitted changes which are in IndexWriter along with the committed indexes. It allows user to  read recently added uncommitted indexes but it introduces scalability issues as a trade off. 
+
+```java
+ DirectoryReader directoryReader = DirectoryReader.open(writer, true);
+ IndexSearcher indexSearcher = new IndexSearcher(directoryReader);
+ ```
+ 
+ 
